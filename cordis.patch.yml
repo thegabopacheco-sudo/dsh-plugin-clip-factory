@@ -1,0 +1,16 @@
+# dsh-plugin-clip-factory — capa bundle de DSH.
+# Inserta una fila @deepseek-ai/dsh-mcp-client que lanza el servidor como "clips".
+# Tools resultantes: mcp__clips__* (ver README).
+- insert:
+    - id: mcp-clip-factory
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: clips
+        transport: stdio
+        command: !!js process.execPath
+        args:
+          - !!js "(process.env.DSH_HOME && process.env.DSH_HOME.trim() !== '' ? process.env.DSH_HOME : (process.env.USERPROFILE || process.env.HOME || '') + '/.dsh') + '/plugins/clip-factory/server.mjs'"
+        env:
+          ELECTRON_RUN_AS_NODE: '1'
+        failOnStartupError: false
+        toolCallTimeoutMs: 60000

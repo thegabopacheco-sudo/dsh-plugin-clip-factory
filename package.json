@@ -1,0 +1,61 @@
+{
+  "name": "dsh-plugin-clip-factory",
+  "version": "0.1.0",
+  "description": "Clip Factory para DeepSeek Harness: convierte videos largos en clips cortos y verticales 9:16 con ffmpeg local, rutas permitidas, auditoría, rate limit y modo read-only (mcp__clips__*).",
+  "type": "module",
+  "license": "MIT",
+  "author": "thegabopacheco-sudo",
+  "homepage": "https://github.com/thegabopacheco-sudo/dsh-plugin-clip-factory#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegabopacheco-sudo/dsh-plugin-clip-factory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thegabopacheco-sudo/dsh-plugin-clip-factory/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "mcp",
+    "ffmpeg",
+    "video",
+    "clips",
+    "shorts",
+    "clip-factory"
+  ],
+  "main": "./dist/server.mjs",
+  "files": [
+    "dist/",
+    "docs/",
+    "cordis.patch.yml",
+    "config.example.json",
+    "scripts/postinstall.mjs",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:bundle": "esbuild server.mjs --bundle --platform=node --format=esm --target=node20 --outfile=dist/server.mjs",
+    "prepack": "npm run build:bundle",
+    "postinstall": "node scripts/postinstall.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/server": "2.2.0",
+    "esbuild": "0.28.2",
+    "zod": "4.4.3"
+  }
+}

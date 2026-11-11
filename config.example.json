@@ -1,0 +1,6 @@
+{
+  "allowedPaths": ["C:\\Users\\tu-usuario"],
+  "ffmpegPath": "",
+  "ffprobePath": "",
+  "note": "allowedPaths limita los archivos que el plugin puede leer y escribir (la caché de salida siempre está permitida). ffmpegPath/ffprobePath vacíos usan PATH; también puedes definir DSH_CLIPS_FFMPEG_PATH / DSH_CLIPS_FFPROBE_PATH."
+}
